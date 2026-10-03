@@ -1,0 +1,8 @@
+.venv
+.git
+.gitignore
+.gitlab-ci.yml
+__pycache__
+*.pyc
+.env
+db.sqlite3
