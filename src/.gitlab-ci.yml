@@ -1,6 +1,5 @@
 stages:
   - test
-  - build
 
 test:
   stage: test
@@ -13,21 +12,3 @@ test:
     - uv run python manage.py migrate --noinput
     - uv run python manage.py check
     - uv run python manage.py test
-
-build:
-  stage: build
-  image: docker:29-cli
-
-  services:
-    - name: docker:29-dind
-      alias: docker
-
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
-
-  script:
-    - docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA" ./src
-    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
-
-  rules:
-    - if: $CI_COMMIT_BRANCH
