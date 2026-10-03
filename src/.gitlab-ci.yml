@@ -3,12 +3,15 @@ stages:
   - build
 
 test:
+  test:
   stage: test
   image: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
   script:
     - cd src
     - uv sync --locked
+    - uv run python manage.py makemigrations --check --dry-run
+    - uv run python manage.py migrate --noinput
     - uv run python manage.py check
     - uv run python manage.py test
 
@@ -28,4 +31,4 @@ build:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
 
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH
