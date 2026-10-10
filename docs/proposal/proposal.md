@@ -19,18 +19,11 @@
 
 ## SECTION B
 
-> Guidance: This document is expected to be approximately 3 pages in length, but it can exceed this page limit.
-> It is also permissible to carry forward content from this proposal to your later documents (e.g. functional
-> specification) as appropriate.
->
-> Your proposal must include *at least* the following sections.
-
-
 ### Introduction
 
 ### Outline
 
-LEAP will be a django-based web applicataion with a React frontend and will have two main functions: scientific literature extraction and enzyme prediction.
+LEEP will be a django-based web applicataion with a React frontend and will have two main functions: scientific literature extraction and enzyme prediction.
 
 The first part of the system will allow researchers to upload or select scientific papers in PDF form. The text will be extracted and preprocessed before being passed to a fine-tuned LLM, which will identify reported enzyme experiments and extract relevant information. This is expected to inlcude:
 
@@ -63,24 +56,31 @@ We can then compare models trained using genuine experimental negative results w
 
 ### Achievements
 
-> What functions will the project provide? Who will the users be?
-
-This project's end goal is to identify given pollutent X, what enzymes could break it down. For example, we may know:
-
+The end goal of the project is to help identify which enzymes may be capable of breaking down or transforming a given pollutant. For example, we may already know part of a degradation pathway:
 
 A -> B (Pollutant A breaks down into B)
 B -> C
 C -> D
 
-but we may not know:
+but there may be a later step where the required enzyme is unknown. LEEP would aim to use the experimental data gathered from scientific literature, alongside existing curated enzyme data, to rank enzymes that may be suitable for carrying out that missing transformation on:
 
-D -> X
+D -> X?
 
-This projects aim is to narrow down the list of a couple hundred thousand enzymes into hundreds or less
+Rather than attempting to test hundreds of thousands of possible enzymes, the aim is to narrow this search space down to a much smaller and more useful list of candidate enzymes for further experimental testing. The system will not prove that a predicted enzyme works, as this would require wet-lab validation, but it should help researchers prioritise which enzymes are most worth investigating.
+
+The application will provide functions for uploading and processing scientific papers, reviewing and validating extracted enzyme experiments, storing these observations in a structured database, training and evaluating machine-learning models, and submitting a target transformation to receive a ranked list of candidate enzymes.
+
+The users of LEEP would be relatively specialised and would mainly include researchers working in areas such as environmental biotechnology, bioinformatics, bioremediation and enzyme discovery. In particular, it could be useful for researchers investigating ways of breaking down pollutants or other difficult environmental compounds while reducing the number of candidates that need to be tested experimentally.
 
 ### Justification
 
-> Why/when/where/how will it be useful?
+Traditionally, identifying useful enzymes for a particular reaction can involve screening very large numbers of candidates, relying on enzymes already known in nature, or carrying out repeated experimental testing until something promising is found. This can make enzyme discovery slow, expensive and resource-intensive.
+
+LEEP aims to speed up this process by using existing experimental knowledge and machine learning to narrow a very large search space down to a much smaller list of promising candidate enzymes. Instead of researchers having to investigate thousands or potentially hundreds of thousands of enzymes, the system would aim to prioritise those most likely to be useful for a target pollutant transformation.
+
+This could be particularly useful in environmental biotechnology and bioremediation, where researchers may already understand part of how a pollutant breaks down but still need to identify an enzyme capable of carrying out a missing step in the pathway. By learning from both successful and unsuccessful past experiments, LEEP may help reduce unnecessary laboratory testing and allow researchers to focus time and resources on the most promising candidates.
+
+The project could therefore be useful wherever enzyme discovery is limited by the size of the search space, with pollutant degradation being the main proof-of-concept application for LEEP.
 
 ### Programming language(s)
 
@@ -99,7 +99,7 @@ These are the planned tools and technologies:
 - **React** - Frontend framework for building the interactive user interface.
 - **D3.js** - Used for dashboard visualisation of extracted data, model performance and enzyme-ranking results.
 - **PostgreSQL** - Relational database for papers, enzymes, substrates, experimental observations, validation records, model information and prediction results.
-- **BRENDA** - Existing curated enzyme database used as a soruce of known enzyme, substrate, product, and activity information. LEAP will aim to enrich this tye of existing data using the extracted enzyme-substrate results from the literature.
+- **BRENDA** - Existing curated enzyme database used as a soruce of known enzyme, substrate, product, and activity information. LEEP will aim to enrich this tye of existing data using the extracted enzyme-substrate results from the literature.
 - **PyMuPDF4LLM** - Used to extract and preprocess text and structured content from scientific PDF papers. **GROBID** may be considered as a fallback if more detailed scientific-document structure extraction is required.
 - **Qwen3-4B** - Open-weight pretrained LLM used to extract structured enzyme experiment information from scientific text. The model may be adapted using supervised fine-tuning to improve performance on the specific enzyme-experiment extraction task.
 - **Hugging Face Transformers, PEFT and TRL** - Used to load, fine-tune and evaluate the extraction model.
