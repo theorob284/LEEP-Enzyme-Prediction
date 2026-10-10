@@ -9,7 +9,7 @@
 
 |                     |                                               |
 |---------------------|-----------------------------------------------|
-|Project Title:       | LEAP - Literature-Extracted Enzyme Prediction |
+|Project Title:       | LEEP - Literature-Extracted Enzyme Prediction |
 |Student 1 Name:      | Theo Robin                                    |
 |Student 1 ID:        | 23388446                                      |
 |Student 2 Name:      | Bailey Scanlan                                |
@@ -27,8 +27,6 @@
 
 
 ### Introduction
-
-> Describe the general area covered by the project.
 
 ### Outline
 
@@ -53,11 +51,32 @@ The final system will allow a researcher to specify a target chemical transforma
 
 ### Background
 
-> Where did the ideas come from?
+This idea was inspired by a company called Nuritas, who have done major work in bioactive peptide discovery and prediction. Their approach has found a novel way to speed up the process of identifying useful bioactive peptides in an area that will almost always have new things to discover. The company’s model inspired us to research other areas where a similar approach could be used, which is how we landed on enzymes.
+
+The idea of this project is very similar in principle to how Nuritas has approached predicting useful bioactive peptides. You get your dataset, train your models, and then use the model to predict what could be useful for a specific scenario. In our case, this means learning from known enzyme-substrate relationships and using that information to predict which enzymes may be suitable for a target chemical transformation.
+
+The challenge we found is that existing enzyme datasets are not always as complete as the information that exists in scientific literature. Many papers contain experiments that could potentially be used to enrich existing enzyme datasets with extra information, particularly experiments showing weak activity or no activity at all.
+
+This is important because many existing enzyme-prediction approaches rely on synthetically generated negative examples when experimentally confirmed negative data is limited. These synthetic negatives are assumed examples of enzyme-substrate pairs that do not react, rather than results taken directly from experiments. Our literature-extraction process would allow us to recover more genuine experimental results, including successful, weak and unsuccessful reactions, and use these alongside existing curated enzyme data.
+
+We can then compare models trained using genuine experimental negative results with models trained using synthetic negative examples, allowing us to investigate whether real experimental data improves enzyme prediction.
 
 ### Achievements
 
 > What functions will the project provide? Who will the users be?
+
+This project's end goal is to identify given pollutent X, what enzymes could break it down. For example, we may know:
+
+
+A -> B (Pollutant A breaks down into B)
+B -> C
+C -> D
+
+but we may not know:
+
+D -> X
+
+This projects aim is to narrow down the list of a couple hundred thousand enzymes into hundreds or less
 
 ### Justification
 
@@ -80,6 +99,7 @@ These are the planned tools and technologies:
 - **React** - Frontend framework for building the interactive user interface.
 - **D3.js** - Used for dashboard visualisation of extracted data, model performance and enzyme-ranking results.
 - **PostgreSQL** - Relational database for papers, enzymes, substrates, experimental observations, validation records, model information and prediction results.
+- **BRENDA** - Existing curated enzyme database used as a soruce of known enzyme, substrate, product, and activity information. LEAP will aim to enrich this tye of existing data using the extracted enzyme-substrate results from the literature.
 - **PyMuPDF4LLM** - Used to extract and preprocess text and structured content from scientific PDF papers. **GROBID** may be considered as a fallback if more detailed scientific-document structure extraction is required.
 - **Qwen3-4B** - Open-weight pretrained LLM used to extract structured enzyme experiment information from scientific text. The model may be adapted using supervised fine-tuning to improve performance on the specific enzyme-experiment extraction task.
 - **Hugging Face Transformers, PEFT and TRL** - Used to load, fine-tune and evaluate the extraction model.
@@ -99,11 +119,15 @@ These are the planned tools and technologies:
 
 ### Hardware
 
-If available, since there will be a lot of training may need extra resources with GPU Power.
+The project can be developed primarily on standard laptops or desktop computers. Access to a GPU may be useful for fine-tuning the language model and generating protein embeddings, particularly during experimentation. If required, we will look for suitable computing or GPU resources. No specialist physical hardware or laboratory equipment is required.
 
 ### Learning Challenges
 
 > List the main new things (technologies, languages, tools, etc) that you will have to learn.
+
+
+### System Architecture
+> put diagram here Bailey
 
 ### Breakdown of work
 
