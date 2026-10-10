@@ -65,15 +65,41 @@ The final system will allow a researcher to specify a target chemical transforma
 
 ### Programming language(s)
 
-> List the proposed language(s) to be used.
+These are the planned programming languages:
+
+- **Python** - Primary language for the Django backend, PDF processing, LLM fine-tuning and inference, machine learning, protein and chemical data processing, and data analysis.
+- **JavaScript** - Used for frontend development, particularly through React and D3.js.
+- **HTML/CSS** - Used for the structure and styling of the web interface.
+- **SQL** - Used primarily through the Django ORM and PostgreSQL for querying and managing structured project data.
 
 ### Programming tools / Tech stack
 
-> Describe the compiler, database, web server, etc., and any other software tools you plan to use.
+These are the planned tools and technologies:
+
+- **Django** - Main web application framework and backend.
+- **React** - Frontend framework for building the interactive user interface.
+- **D3.js** - Used for dashboard visualisation of extracted data, model performance and enzyme-ranking results.
+- **PostgreSQL** - Relational database for papers, enzymes, substrates, experimental observations, validation records, model information and prediction results.
+- **PyMuPDF4LLM** - Used to extract and preprocess text and structured content from scientific PDF papers. **GROBID** may be considered as a fallback if more detailed scientific-document structure extraction is required.
+- **Qwen3-4B** - Open-weight pretrained LLM used to extract structured enzyme experiment information from scientific text. The model may be adapted using supervised fine-tuning to improve performance on the specific enzyme-experiment extraction task.
+- **Hugging Face Transformers, PEFT and TRL** - Used to load, fine-tune and evaluate the extraction model.
+- **QLoRA** - Parameter-efficient fine-tuning method used to adapt the LLM while reducing GPU memory requirements by quantising the underlying model and training a relatively small set of adapter parameters.
+- **ESM-2** - Pretrained protein language model accessed through Hugging Face and used to convert amino-acid sequences into numerical protein representations for the prediction model.
+- **RDKit** - Used to process chemical structures and convert substrates into numerical molecular fingerprints suitable for machine-learning models.
+- **XGBoost** - Primary machine-learning algorithm used to predict enzyme-substrate activity from protein and chemical representations.
+- **Logistic Regression / Random Forest** - Potential baseline models used to compare the performance of the main XGBoost model.
+- **scikit-learn** - Used for dataset splitting, preprocessing, baseline models, evaluation and performance metrics.
+- **Pandas / NumPy** - Used for dataset preparation, cleaning, transformation and analysis.
+- **Matplotlib** - Used primarily during exploratory data analysis and model evaluation. D3.js will be used for interactive visualisations within the final application.
+- **Biopython** - May be used for handling biological sequence data, protein identifiers and related bioinformatics operations.
+- **Jupyter Notebook** - Used for exploratory data analysis and machine-learning experimentation before models are integrated into the Django application.
+- **Docker** - Used to create a reproducible development environment for the Django application, PostgreSQL database and associated dependencies.
+- **uv** - Used for Python environment and dependency management.
+- **DCU GitLab** - Used for version control, collaboration and CI/CD.
 
 ### Hardware
 
-If available, since there will be a lot of training may need extra resources with CPU Power.
+If available, since there will be a lot of training may need extra resources with GPU Power.
 
 ### Learning Challenges
 
