@@ -127,8 +127,13 @@ The project can be developed primarily on standard laptops or desktop computers.
 > List the main new things (technologies, languages, tools, etc) that you will have to learn.
 
 
-### System Architecture
-> put diagram here Bailey
+### Training System Model Architecture and User System Architecture respecively
+<p align="center">
+  <img title="Our proposed system model training architecture" alt="Training architecture" src="./images/training_architecture.svg" height="700">
+  <img title="Our proposed user system architecture" alt="User architecture" src="./images/user_architecture.svg" height="700">
+</p>
+
+### User System Architecture
 
 ### Breakdown of work
 
