@@ -20,6 +20,7 @@
 ## SECTION B
 
 ### Introduction
+Bailey Scanlan and Theo Robin propose that our project called LEEP will be on gathering Research Papers and training a model to be able to return Enzymes that can break down a Pollutant based on a user request. This project will cover the area of climate change and biology.
 
 ### Outline
 
