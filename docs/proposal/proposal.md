@@ -7,20 +7,15 @@
 
 ## SECTION A
 
-|                     |                   |
-|---------------------|-------------------|
-|Project Title:       | xxxxxx            |
-|Student 1 Name:      | xxxxxx            |
-|Student 1 ID:        | xxxxxx            |
-|Student 2 Name:      | xxxxxx            |
-|Student 2 ID:        | xxxxxx            |
-|Project Supervisor:  | xxxxxx            |
+|                     |                                               |
+|---------------------|-----------------------------------------------|
+|Project Title:       | LEAP - Literature-Extracted Enzyme Prediction |
+|Student 1 Name:      | Theo Robin                                    |
+|Student 1 ID:        | 23388446                                      |
+|Student 2 Name:      | Bailey Scanlan                                |
+|Student 2 ID:        | xxxxxxxx                                      |
+|Project Supervisor:  | Luca Rossetto                                 |
 
-> Ensure that the Supervisor formally agrees to supervise your project; this is only recognised once the
-> Supervisor assigns herself/himself via the project Dashboard.
->
-> Project proposals without an assigned
-> Supervisor will not be accepted for presentation to the Approval Panel.
 
 ## SECTION B
 
@@ -37,7 +32,24 @@
 
 ### Outline
 
-> Outline the proposed project.
+LEAP will be a django-based web applicataion with a React frontend and will have two main functions: scientific literature extraction and enzyme prediction.
+
+The first part of the system will allow researchers to upload or select scientific papers in PDF form. The text will be extracted and preprocessed before being passed to a fine-tuned LLM, which will identify reported enzyme experiments and extract relevant information. This is expected to inlcude:
+
+- Enzyme
+- Substrate
+- Product, where known
+- Activitu result, such as active, weak activity or inactive
+- Assay conditions
+- Supporting evidence
+
+The final extraction schema may be refined as the project develops and the available literature is investigated. The LLM output will be converted into structured records and presented through a humanr review process, where extracted records can be approved, edited or rejected. Approved records will then be stored in PostgreSQL.
+
+The validated literature data will be combined with suitable existing curated enzyme data where available to create a dataset for machine learning experiments. Protein sequences will be converted into numerical representations using a pretrained protein model, while chemical substrates will be represented using RDKit molecular fingerprints. These representations will be used to train an XGBoost model to predict the likelihood of activity between an enzyme and a substrate
+
+A key part will be comparing models trained using genuine experimental negative results recovered from literature with models trained using synthetically generated negative examples. This will allow us to investigate whether real unsuccessful experiments improve enzyme prediction.
+
+The final system will allow a researcher to specify a target chemical transformation and recieve a ranked list of candidate enzymes considered most suitable for further experimental testing. A dashboard will visualise the extracted dataset, LLM extraction performance, machine learning results and cadidate enzyme rankings.
 
 ### Background
 
@@ -61,7 +73,7 @@
 
 ### Hardware
 
-> Describe any non-standard hardware components which will be required.
+If available, since there will be a lot of training may need extra resources with CPU Power.
 
 ### Learning Challenges
 
@@ -101,14 +113,3 @@
 |             |            |          |            |
 |             |            |          |            |
 |             |            |          |            |
-
-## Example
-
-> Example: Here's how you can include images in markdown documents...
-
-<!-- Basically, just use HTML! -->
-
-<p align="center">
-  <img src="./res/cat.png" width="300px">
-</p>
-
