@@ -144,15 +144,40 @@ The project can be developed primarily on standard laptops or desktop computers.
 > for the project.
 
 
-
-
 #### Student 1
 
-> *Student 1 should complete this section.*
+Literature extraction, data curation and backend
+
+- Django backend and PostgreSQL schema for papers, enzymes, substrates, experiments and validation records.
+- PDF ingestion and preprocessing using PyMuPDF4LLM.
+- Creation of the manually annotated dataset used to adapt/evaluate the extraction LLM.
+- Qwen fine-tuning using Hugging Face, PEFT/TRL and QLoRA.
+- LLM extraction of enzyme, substrate, activity, assay conditions and supporting evidence.
+- Human review workflow allowing extracted records to be approved, edited or rejected.
+- Import/enrichment of suitable existing curated enzyme data.
+- APIs/endpoints required by the frontend and ML pipeline.
+- React/D3.js dashboard for dataset statistics, model comparisons and ranked enzyme predictions.
 
 #### Student 2
 
-> *Student 2 should complete this section.*
+Machine learning and enzyme prediction
+
+- Preparation of the validated enzyme/substrate data for ML.
+- Protein representation using a pretrained protein model such as ESM-2.
+- Chemical representation using RDKit molecular fingerprints.
+- Generation and management of synthetic negative examples.
+- Training the main XGBoost enzyme-substrate prediction model.
+- Training comparison models using: synthetic negatives, genuine experimental negatives,potentially a combination of both.
+- Baseline models such as Logistic Regression or Random Forest.
+- Model evaluation, including ranking metrics and retrospective testing against known reactions.
+- Candidate-enzyme ranking for a target pollutant transformation.
+
+#### Shared Work (At a Minimum)
+- overall system architecture;
+- selection of the environmental proof-of-concept;
+- defining the common data format between the two pipelines;
+- Docker environment and GitLab CI/CD;
+- final system testing and evaluation;
 
 
 ### Risk Register
