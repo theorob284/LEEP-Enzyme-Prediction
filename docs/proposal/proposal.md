@@ -193,3 +193,4 @@ Machine learning and enzyme prediction
 | Poor Machine Learning Performance | Medium     | High     | Establish Simple baseline models and experiment with more and alternative features and properly evaluate performance  |
 | Poor PDF extraction Quality       | High       | Medium   | test extraction on a sample of papers and properly setup preprocessing and layout specific handling                   |
 | Insuficient Experimental Data     | High       | High     | Supplement extracted records with premade datasets such as BRENDA, Reduce scope to a specific enzyme family if needed |
+| Prediction Objective Mistmatch | High | High | Define the Objective of predictions clearly, incorporate reaction information where possible and constrain candidate rankings using known Enzyme reaction Classes
