@@ -1,14 +1,21 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
+    - when: never
+
 stages:
   - test
 
 test:
   stage: test
   image: ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+  interruptible: true
+  timeout: 10m
 
   script:
     - cd src
-    - uv sync --locked
-    - uv run python manage.py makemigrations --check --dry-run
-    - uv run python manage.py migrate --noinput
-    - uv run python manage.py check
-    - uv run python manage.py test
+    - uv sync --locked --python 3.12
+    - uv run --no-sync python manage.py check
+    - uv run --no-sync python manage.py makemigrations --check --dry-run
+    - uv run --no-sync python manage.py migrate --noinput
+    - uv run --no-sync python manage.py test --noinput

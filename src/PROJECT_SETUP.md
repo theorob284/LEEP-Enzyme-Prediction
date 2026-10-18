@@ -72,8 +72,22 @@ docker run my-django-app python manage.py check # Run a Django check inside the 
 
 ## 6. GitLab CI
 
-GitLab is configured to use: src/.gitlab-ci.yml
+The root `.gitlab-ci.yml` includes `src/.gitlab-ci.yml`. The existing custom
+GitLab CI configuration path `src/.gitlab-ci.yml` also remains supported.
 
-It will automatically check for any issues.
+The pipeline runs when a merge request targets `main`, including when new
+commits are pushed to that merge request. It installs locked dependencies with
+Python 3.12 (matching Docker), runs Django system checks, checks for missing
+migrations, applies migrations to SQLite, and runs the Django test suite.
+Ordinary branch pushes and merge requests targeting other branches do not run it.
+
+In GitLab, enable **Settings > Merge requests > Merge checks > Pipelines must
+succeed** to block merging when the pipeline fails. A runner supporting Docker
+images must be available. Protect `main` against direct pushes if all changes
+must pass through merge requests.
+
+The current `leap/tests.py` is a placeholder; the pipeline will run application
+tests as they are added. Standard merge request pipelines check the source
+branch, rather than a simulated merge with `main`.
 
 ---

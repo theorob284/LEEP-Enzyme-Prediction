@@ -8,18 +8,18 @@
 ## SECTION A
 
 |                     |                                               |
-|---------------------|-----------------------------------------------|
-|Project Title:       | LEEP - Literature-Extracted Enzyme Prediction |
-|Student 1 Name:      | Theo Robin                                    |
-|Student 1 ID:        | 23388446                                      |
-|Student 2 Name:      | Bailey Scanlan                                |
-|Student 2 ID:        | xxxxxxxx                                      |
-|Project Supervisor:  | Luca Rossetto                                 |
-
+| ------------------- | --------------------------------------------- |
+| Project Title:      | LEEP - Literature-Extracted Enzyme Prediction |
+| Student 1 Name:     | Theo Robin                                    |
+| Student 1 ID:       | 23388446                                      |
+| Student 2 Name:     | Bailey Scanlan                                |
+| Student 2 ID:       | xxxxxxxx                                      |
+| Project Supervisor: | Luca Rossetto                                 |
 
 ## SECTION B
 
 ### Introduction
+
 Bailey Scanlan and Theo Robin propose that our project called LEEP will be on gathering Research Papers and training a model to be able to return Enzymes that can break down a Pollutant based on a user request. This project will cover the area of climate change and biology.
 
 ### Outline
@@ -126,8 +126,8 @@ The project can be developed primarily on standard laptops or desktop computers.
 
 > List the main new things (technologies, languages, tools, etc) that you will have to learn.
 
-
 ### Training System Model Architecture and User System Architecture respecively
+
 <p align="center">
   <img title="Our proposed system model training architecture" alt="Training architecture" src="./images/training_architecture.svg" height="700">
   <img title="Our proposed user system architecture" alt="User architecture" src="./images/user_architecture.svg" height="700">
@@ -142,7 +142,6 @@ The project can be developed primarily on standard laptops or desktop computers.
 > It must be clear from the explanation of this breakdown of work both that each student is responsible for
 > separate, clearly-defined tasks, and that those responsibilities substantially cover all of the work required
 > for the project.
-
 
 #### Student 1
 
@@ -173,24 +172,25 @@ Machine learning and enzyme prediction
 - Candidate-enzyme ranking for a target pollutant transformation.
 
 #### Shared Work (At a Minimum)
+
 - overall system architecture;
 - selection of the environmental proof-of-concept;
 - defining the common data format between the two pipelines;
 - Docker environment and GitLab CI/CD;
 - final system testing and evaluation;
 
-
 ### Risk Register
 
-> You are to complete a risk register to demonstrate how you will account for the potential risks (i.e. something going wrong) when you are working on your project. 
-> The purpose of a risk register is to identify potential issues beforehand and plan mitigation strategies to ensure the success of the project. 
-> The risks are different for each project by some examples include 
+> You are to complete a risk register to demonstrate how you will account for the potential risks (i.e. something going wrong) when you are working on your project.
+> The purpose of a risk register is to identify potential issues beforehand and plan mitigation strategies to ensure the success of the project.
+> The risks are different for each project by some examples include
 
 > if you are using physical components (e.g. sensors), what happens if they never arrive, or if they break, or if they are not suitable?
-> if you are creating an AI/ML method , what happens if there is no suitable training data, or if the model performs poorly after training? 
+> if you are creating an AI/ML method , what happens if there is no suitable training data, or if the model performs poorly after training?
 
-| Description | Likelyhood | Severity | Mitigation |
-|-------------|------------|----------|------------|
-|             |            |          |            |
-|             |            |          |            |
-|             |            |          |            |
+| Description                       | Likelyhood | Severity | Mitigation                                                                                                            |
+| --------------------------------- | ---------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| Poor Machine Learning Performance | Medium     | High     | Establish Simple baseline models and experiment with more and alternative features and properly evaluate performance  |
+| Poor PDF extraction Quality       | High       | Medium   | test extraction on a sample of papers and properly setup preprocessing and layout specific handling                   |
+| Insuficient Experimental Data     | High       | High     | Supplement extracted records with premade datasets such as BRENDA, Reduce scope to a specific enzyme family if needed |
+| Prediction Objective Mistmatch | High | High | Define the Objective of predictions clearly, incorporate reaction information where possible and constrain candidate rankings using known Enzyme reaction Classes
