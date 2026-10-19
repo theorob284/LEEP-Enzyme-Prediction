@@ -1,10 +1,5 @@
 # School of Computing &mdash; Year 4 Project Proposal Form
 
-> Edit (then commit and push) this document to complete your proposal form.
-> Make use of figures / diagrams where appropriate.
->
-> Do not rename this file.
-
 ## SECTION A
 
 |                     |                                               |
@@ -124,8 +119,6 @@ The project can be developed primarily on standard laptops or desktop computers.
 
 ### Learning Challenges
 
-> List the main new things (technologies, languages, tools, etc) that you will have to learn.
-
 ### Training System Model Architecture and User System Architecture respecively
 
 <p align="center">
@@ -136,12 +129,6 @@ The project can be developed primarily on standard laptops or desktop computers.
 ### User System Architecture
 
 ### Breakdown of work
-
-> Clearly identify who will undertake which parts of the project.
->
-> It must be clear from the explanation of this breakdown of work both that each student is responsible for
-> separate, clearly-defined tasks, and that those responsibilities substantially cover all of the work required
-> for the project.
 
 #### Student 1
 
@@ -180,13 +167,6 @@ Machine learning and enzyme prediction
 - final system testing and evaluation;
 
 ### Risk Register
-
-> You are to complete a risk register to demonstrate how you will account for the potential risks (i.e. something going wrong) when you are working on your project.
-> The purpose of a risk register is to identify potential issues beforehand and plan mitigation strategies to ensure the success of the project.
-> The risks are different for each project by some examples include
-
-> if you are using physical components (e.g. sensors), what happens if they never arrive, or if they break, or if they are not suitable?
-> if you are creating an AI/ML method , what happens if there is no suitable training data, or if the model performs poorly after training?
 
 | Description                       | Likelyhood | Severity | Mitigation                                                                                                            |
 | --------------------------------- | ---------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
