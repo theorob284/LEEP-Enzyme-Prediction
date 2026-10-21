@@ -8,7 +8,7 @@
 | Student 1 Name:     | Theo Robin                                    |
 | Student 1 ID:       | 23388446                                      |
 | Student 2 Name:     | Bailey Scanlan                                |
-| Student 2 ID:       | xxxxxxxx                                      |
+| Student 2 ID:       | 23316363                                      |
 | Project Supervisor: | Luca Rossetto                                 |
 
 ## SECTION B
